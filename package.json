@@ -1,0 +1,7 @@
+{
+    "name": "Cyber Escape Room",
+    "version": "1.0.0",
+    "scripts": {
+    "deploy": "xcopy \"./CER\" \"./public\" /s /y && firebase deploy"
+}
+  }
