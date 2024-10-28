@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cybersecurity Learning Platform</title>
-    <style>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cybersecurity Learning Platform</title>
+        <style>
         * {
             margin: 0;
             padding: 0;
@@ -60,6 +60,32 @@
         .main-nav a {
             color: #e4e4e7;
             text-decoration: none;
+        }
+
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .logout-btn {
+            background-color: #2a2a2a;
+            color: #f87171;
+            border: 1px solid #f87171;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s;
+        }
+
+        .logout-btn:hover {
+            background-color: #f87171;
+            color: #fff;
         }
 
         .notification {
@@ -143,129 +169,179 @@
             line-height: 1.5;
         }
     </style>
-    <script type="text/javascript">
+        <script type="text/javascript">
         var name = localStorage.getItem('user');
       </script>
-</head>
-<body>
-    <header>
-        <div class="user-info">
-            <div class="user-avatar">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="12" cy="7" r="4"></circle>
-                </svg>
-            </div>
-            <div class="user-details">
-                <h2>Welcome, <script type="text/javascript">
+    </head>
+    <body>
+        <header>
+            <div class="user-info">
+                <div class="user-avatar">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </div>
+                <div class="user-details">
+                    <h2>Welcome, <script type="text/javascript">
                     document.write(name)
                   </script></h2>
-                <p>Plan: Free</p>
+                    <p>Plan: Free</p>
+                </div>
             </div>
-        </div>
 
-        <nav class="main-nav">
-            <a href="#features">Features</a>
-            <a href="#challenges">Challenges</a>
-            <a href="#leaderboard">Leaderboard</a>
-            <a href="#resources">Resources</a>
-        </nav>
+            <nav class="main-nav">
+                <a href="#features">Features</a>
+                <a href="#challenges">Challenges</a>
+                <a href="#leaderboard">Leaderboard</a>
+                <a href="#resources">Resources</a>
+            </nav>
 
-        <div class="upgrade-option">
-            💎 <a href="https://buy.stripe.com/test_bIY8zY6Iw4ETeBO4gg" style="color: #f87171; text-decoration: none;">Upgrade to Premium</a>
-        </div>
-        
-    </header>
+            <div class="header-actions">
+                <div class="upgrade-option">
+                    💎 <a href="https://buy.stripe.com/test_bIY8zY6Iw4ETeBO4gg"
+                        style="color: #f87171; text-decoration: none;">Upgrade
+                        to Premium</a>
+                </div>
+                <a href="https://cyberescape-room.web.app/index.html"
+                    class="logout-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                        <polyline points="16 17 21 12 16 7"></polyline>
+                        <line x1="21" y1="12" x2="9" y2="12"></line>
+                    </svg>
+                    Logout
+                </a>
+            </div>
 
-    <div class="container">
-        <aside class="sidebar">
-            <ul class="sidebar-nav">
-                <li><a href="#dashboard">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="3" y="3" width="7" height="7"></rect>
-                        <rect x="14" y="3" width="7" height="7"></rect>
-                        <rect x="14" y="14" width="7" height="7"></rect>
-                        <rect x="3" y="14" width="7" height="7"></rect>
-                    </svg>
-                    Dashboard
-                </a></li>
-                <li><a href="#exams">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                    </svg>
-                    Exams
-                </a></li>
-                <li><a href="#modules">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-                    </svg>
-                    Modules
-                </a></li>
-                <li><a href="#paths">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M3 12h18"></path>
-                        <path d="M3 6h18"></path>
-                        <path d="M3 18h18"></path>
-                    </svg>
-                    Paths
-                </a></li>
-                <li><a href="#labs">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M10 2v7.31"></path>
-                        <path d="M14 9.3V1.99"></path>
-                        <path d="M8.5 2h7"></path>
-                        <path d="M14 9.3a6.5 6.5 0 1 1-4 0"></path>
-                    </svg>
-                    Labs
-                </a></li>
-                <li><a href="#certificates">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 15l-2 5l-2-5H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-3l-2 5l-2-5z"></path>
-                    </svg>
-                    My Certificates
-                </a></li>
-                <li><a href="#badges">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 1v22"></path>
-                        <path d="M17 5H7"></path>
-                        <path d="M17 19H7"></path>
-                    </svg>
-                    My Badges
-                </a></li>
-                <li><a href="#referrals">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="18" cy="5" r="3"></circle>
-                        <circle cx="6" cy="12" r="3"></circle>
-                        <circle cx="18" cy="19" r="3"></circle>
-                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
-                        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
-                    </svg>
-                    Referrals
-                </a></li>
-            </ul>
-        </aside>
+        </header>
 
-        <main class="main-content">
-            <h2 class="section-title">Challenges</h2>
-<div class="features-list">
-    <div class="feature-card">
-        <h3><a href="./Big_bounty.html" style="color: #f87171; text-decoration: none;">Bug Bounty Programs</a></h3>
-        <p>Participate in real-world bug bounty simulations and earn rewards.</p>
-    </div>
-    <div class="feature-card">
-        <h3><a href="./vulnerability_challenge.html" style="color: #f87171; text-decoration: none;">Vulnerability Challenges</a></h3>
-        <p>Download files to find vulnerabilities and perform reverse engineering.</p>
-    </div>
-    <div class="feature-card">
-        <h3><a href="./interactive_pages.html" style="color: #f87171; text-decoration: none;">Interactive Labs</a></h3>
-        <p>Practice on live virtual machines and solve Capture the Flag (CTF) challenges.</p>
-    </div>
-    <div class="feature-card">
-        <h3><a href="./code_audit.html" style="color: #f87171; text-decoration: none;">Code Auditing</a></h3>
-        <p>Analyze code snippets for security flaws and improve your secure coding skills.</p>
-    </div>
-</div>
+        <div class="container">
+            <aside class="sidebar">
+                <ul class="sidebar-nav">
+                    <li><a href="#dashboard">
+                            <svg width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="3" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="14" width="7" height="7"></rect>
+                                <rect x="3" y="14" width="7" height="7"></rect>
+                            </svg>
+                            Dashboard
+                        </a></li>
+                    <li><a href="#exams">
+                            <svg width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                            </svg>
+                            Exams
+                        </a></li>
+                    <li><a href="#modules">
+                            <svg width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                <path
+                                    d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                            </svg>
+                            Modules
+                        </a></li>
+                    <li><a href="#paths">
+                            <svg width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M3 12h18"></path>
+                                <path d="M3 6h18"></path>
+                                <path d="M3 18h18"></path>
+                            </svg>
+                            Paths
+                        </a></li>
+                    <li><a href="#labs">
+                            <svg width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M10 2v7.31"></path>
+                                <path d="M14 9.3V1.99"></path>
+                                <path d="M8.5 2h7"></path>
+                                <path d="M14 9.3a6.5 6.5 0 1 1-4 0"></path>
+                            </svg>
+                            Labs
+                        </a></li>
+                    <li><a href="#certificates">
+                            <svg width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M12 15l-2 5l-2-5H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-3l-2 5l-2-5z"></path>
+                            </svg>
+                            My Certificates
+                        </a></li>
+                    <li><a href="#badges">
+                            <svg width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M12 1v22"></path>
+                                <path d="M17 5H7"></path>
+                                <path d="M17 19H7"></path>
+                            </svg>
+                            My Badges
+                        </a></li>
+                    <li><a href="#referrals">
+                            <svg width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="18" cy="5" r="3"></circle>
+                                <circle cx="6" cy="12" r="3"></circle>
+                                <circle cx="18" cy="19" r="3"></circle>
+                                <line x1="8.59" y1="13.51" x2="15.42"
+                                    y2="17.49"></line>
+                                <line x1="15.41" y1="6.51" x2="8.59"
+                                    y2="10.49"></line>
+                            </svg>
+                            Referrals
+                        </a></li>
+                </ul>
+            </aside>
 
-</body>
-</html>
+            <main class="main-content">
+                <h2 class="section-title">Challenges</h2>
+                <div class="features-list">
+                    <div class="feature-card">
+                        <h3><a href="./Big_bounty.html"
+                                style="color: #f87171; text-decoration: none;">Bug
+                                Bounty Programs</a></h3>
+                        <p>Participate in real-world bug bounty simulations and
+                            earn rewards.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3><a href="./vulnerability_challenge.html"
+                                style="color: #f87171; text-decoration: none;">Vulnerability
+                                Challenges</a></h3>
+                        <p>Download files to find vulnerabilities and perform
+                            reverse engineering.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3><a href="./interactive_pages.html"
+                                style="color: #f87171; text-decoration: none;">Interactive
+                                Labs</a></h3>
+                        <p>Practice on live virtual machines and solve Capture
+                            the Flag (CTF) challenges.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3><a href="./code_audit.html"
+                                style="color: #f87171; text-decoration: none;">Code
+                                Auditing</a></h3>
+                        <p>Analyze code snippets for security flaws and improve
+                            your secure coding skills.</p>
+                    </div>
+                </div>
+
+            </body>
+        </html>

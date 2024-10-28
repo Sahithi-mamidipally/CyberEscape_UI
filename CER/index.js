@@ -27,7 +27,6 @@ function register() {
   const password = document.getElementById('password').value
   const full_name = document.getElementById('full_name').value
   const confirm_password = document.getElementById('confirm_password').value
-  // milk_before_cereal = document.getElementById('milk_before_cereal').value
 
   // Validate input fields
   if (validate_email(email) == false || validate_password(password) == false) {
@@ -224,12 +223,10 @@ function validate_email(email) {
 }
 
 function validate_password(password) {
-  // Firebase only accepts lengths greater than 6
-  if (password < 6) {
-    return false
-  } else {
-    return true
-  }
+  const expression = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).{8,}$/
+
+  return expression.test(password)
+
 }
 
 function validate_field(field) {
