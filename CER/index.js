@@ -224,11 +224,14 @@ function validate_email(email) {
 }
 
 function validate_password(password) {
-  // Firebase only accepts lengths greater than 6
-  if (password < 6) {
-    return false
-  } else {
+  const expression = /^(?=.*\d).{8,}$/
+
+  // Firebase only accepts lengths greater than 8
+  if (expression.test(password) == true) {
     return true
+  } else {
+    //not reached password condition
+    return false
   }
 }
 
