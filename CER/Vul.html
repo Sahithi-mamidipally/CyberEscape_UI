@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vulnerability Challenge Files</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #1a1a1a;
+            color: #ffffff;
+        }
+        .warning {
+            background: #333333;
+            border-left: 4px solid #ff6b6b;
+            padding: 16px;
+            margin: 20px 0;
+            color: #cccccc;
+        }
+        .challenge-card {
+            background: #282828;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            border: 1px solid #333333;
+        }
+        .difficulty {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        .beginner { 
+            background: #1e3a23;
+            color: #6ee7b7;
+            border: 1px solid #6ee7b7;
+        }
+        .intermediate { 
+            background: #1e3a8a;
+            color: #93c5fd;
+            border: 1px solid #93c5fd;
+        }
+        .advanced { 
+            background: #752424;
+            color: #fca5a5;
+            border: 1px solid #fca5a5;
+        }
+        h1 { 
+            color: #ff6b6b;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        h2 { 
+            color: #ff6b6b;
+            margin-bottom: 1rem;
+        }
+        p {
+            color: #cccccc;
+            line-height: 1.6;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+        li {
+            color: #cccccc;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+        li:before {
+            content: "•";
+            color: #ff6b6b;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        .download-btn {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: none;
+        }
+        .download-btn:hover {
+            background: #ff8585;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .copyright {
+            margin-top: 2rem;
+            text-align: center;
+            color: #888888;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>Vulnerability Challenge Files</h1>
+
+    <div class="warning">
+        <strong style="color: #ff6b6b">⚠️ Important:</strong> These files contain intentional vulnerabilities for educational purposes. Only run them in a controlled, isolated environment.
+    </div>
+
+    <div class="challenge-card">
+        <span class="difficulty beginner">Beginner</span>
+        <h2>Buffer Overflow Basics</h2>
+        <p>A simple C program with classic buffer overflow vulnerabilities. Perfect for beginners learning about memory corruption.</p>
+        <ul>
+            <li>File size: 128KB</li>
+            <li>Type: Linux ELF Binary</li>
+            <li>Skills: Buffer Overflow, GDB Usage</li>
+        </ul>
+        <button onclick="downloadBufferOverflow()" class="download-btn">Download Challenge</button>
+    </div>
+
+    <div class="challenge-card">
+        <span class="difficulty intermediate">Intermediate</span>
+        <h2>Crypto Challenge Pack</h2>
+        <p>Collection of programs implementing various cryptographic operations with common implementation flaws.</p>
+        <ul>
+            <li>File size: 256KB</li>
+            <li>Type: Python Scripts</li>
+            <li>Skills: Cryptanalysis, Python Debugging</li>
+        </ul>
+        <button onclick="downloadCryptoChallenge()" class="download-btn">Download Challenge</button>
+    </div>
+
+    <div class="challenge-card">
+        <span class="difficulty intermediate">Intermediate</span>
+        <h2>Web API Vulnerabilities</h2>
+        <p>A vulnerable REST API implementation with multiple security issues including IDOR and injection flaws.</p>
+        <ul>
+            <li>File size: 512KB</li>
+            <li>Type: Node.js Application</li>
+            <li>Skills: API Testing, Web Security</li>
+        </ul>
+        <button onclick="downloadWebAPI()" class="download-btn">Download Challenge</button>
+    </div>
+
+    <div class="challenge-card">
+        <span class="difficulty advanced">Advanced</span>
+        <h2>Firmware Analysis Challenge</h2>
+        <p>Modified IoT device firmware containing multiple security vulnerabilities and hidden backdoors.</p>
+        <ul>
+            <li>File size: 1.2MB</li>
+            <li>Type: Firmware Binary</li>
+            <li>Skills: Reverse Engineering, ARM Assembly</li>
+        </ul>
+        <button onclick="downloadFirmware()" class="download-btn">Download Challenge</button>
+    </div>
+
+    <div class="challenge-card">
+        <span class="difficulty advanced">Advanced</span>
+        <h2>Windows Privilege Escalation</h2>
+        <p>A Windows application with multiple privilege escalation vulnerabilities including unsafe COM object usage.</p>
+        <ul>
+            <li>File size: 2.1MB</li>
+            <li>Type: Windows Executable</li>
+            <li>Skills: Windows Internals, Privilege Escalation</li>
+        </ul>
+        <button onclick="downloadWindowsPrivesc()" class="download-btn">Download Challenge</button>
+    </div>
+
+    <div class="copyright">
+        © 2024 Cybersecurity Learning Platform. All rights reserved.
+    </div>
+
+    <script>
+        // Helper function to handle downloads
+        function downloadFile(content, filename) {
+            const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+            const element = document.createElement('a');
+            element.href = URL.createObjectURL(blob);
+            element.download = filename;
+            element.style.display = 'none';
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+            URL.revokeObjectURL(element.href);
+        }
+
+        // Buffer Overflow Challenge
+        function downloadBufferOverflow() {
+            const content = 
+`#include <stdio.h>
+#include <string.h>
+
+void greet() {
+    char buffer[64];
+    printf("Enter your name: ");
+    gets(buffer);  // Intentionally vulnerable gets() call
+    printf("Hello, %s!\\n", buffer);
+}
+
+int main() {
+    printf("Welcome to Buffer Overflow Challenge v1.2\\n");
+    printf("=======================================\\n");
+    greet();
+    return 0;
+}`;
+            downloadFile(content, 'vuln.c');
+        }
+
+        // Crypto Challenge
+        function downloadCryptoChallenge() {
+            const content = 
+`import base64
+from Crypto.Cipher import AES
+
+class WeakEncryption:
+    def __init__(self):
+        # Intentionally weak key and IV
+        self.key = b'SuperSecretKey16!'
+        self.iv = b'0000000000000000'
+    
+    def encrypt(self, plaintext):
+        cipher = AES.new(self.key, AES.MODE_CBC, self.iv)
+        padded = self._pad(plaintext.encode())
+        return base64.b64encode(cipher.encrypt(padded))
+    
+    def decrypt(self, ciphertext):
+        cipher = AES.new(self.key, AES.MODE_CBC, self.iv)
+        padded = cipher.decrypt(base64.b64decode(ciphertext))
+        return self._unpad(padded).decode()
+    
+    def _pad(self, data):
+        pad_len = 16 - (len(data) % 16)
+        return data + bytes([pad_len] * pad_len)
+    
+    def _unpad(self, data):
+        return data[:-data[-1]]`;
+            downloadFile(content, 'weak_crypto.py');
+        }
+
+        // Web API Challenge
+        function downloadWebAPI() {
+            const content = 
+`const express = require('express');
+const sqlite3 = require('sqlite3');
+const app = express();
+
+app.use(express.json());
+
+const db = new sqlite3.Database(':memory:');
+
+// Initialize database with vulnerable data
+db.serialize(() => {
+    db.run(\`CREATE TABLE users (
+        id INTEGER PRIMARY KEY,
+        username TEXT,
+        password TEXT,
+        isAdmin INTEGER
+    )\`);
+    
+    db.run(\`INSERT INTO users VALUES 
+        (1, 'admin', 'admin123', 1),
+        (2, 'user1', 'pass123', 0)\`);
+});
+
+// Vulnerable endpoint - SQL Injection
+app.get('/api/users', (req, res) => {
+    const username = req.query.username;
+    // Intentionally vulnerable SQL query
+    db.all(\`SELECT id, username FROM users WHERE username LIKE '%\${username}%'\`, 
+        (err, rows) => {
+            res.json(rows);
+        });
+});
+
+app.listen(3000, () => console.log('Server running on port 3000'));`;
+            downloadFile(content, 'app.js');
+        }
+
+        // Firmware Challenge
+        function downloadFirmware() {
+            const content = 
+`#include <stdio.h>
+#include <string.h>
+
+#define FIRMWARE_VERSION "1.5"
+#define BACKDOOR_PASSWORD "debug123"
+
+void process_command(char* cmd) {
+    if (strncmp(cmd, "VERSION", 7) == 0) {
+        printf("Firmware v%s\\n", FIRMWARE_VERSION);
+    }
+    else if (strncmp(cmd, "DEBUG ", 6) == 0) {
+        if (strcmp(cmd + 6, BACKDOOR_PASSWORD) == 0) {
+            printf("Debug mode activated\\n");
+            system("/bin/sh");  // Intentional backdoor
+        }
+    }
+}
+
+int main() {
+    char cmd[256];
+    while(1) {
+        printf("CMD> ");
+        fgets(cmd, sizeof(cmd), stdin);
+        cmd[strcspn(cmd, "\\n")] = 0;
+        process_command(cmd);
+    }
+    return 0;
+}`;
+            downloadFile(content, 'firmware.c');
+        }
+
+        // Windows Privilege Escalation Challenge
+        function downloadWindowsPrivesc() {
+            const content = 
+`#include <windows.h>
+#include <stdio.h>
+
+#define SERVICE_NAME L"VulnService"
+
+SERVICE_STATUS serviceStatus;
+SERVICE_STATUS_HANDLE serviceStatusHandle;
+
+// Vulnerable function - Improper permissions
+void CreateConfigFile() {
+    HANDLE hFile = CreateFile(
+        L"C:\\Program Files\\VulnService\\config.ini",
+        GENERIC_READ | GENERIC_WRITE,
+        FILE_SHARE_READ | FILE_SHARE_WRITE,
+        NULL,  // No security descriptor
+        CREATE_ALWAYS,
+        FILE_ATTRIBUTE_NORMAL,
+        NULL
+    );
+    CloseHandle(hFile);
+}
+
+int main() {
+    CreateConfigFile();
+    printf("Service started with vulnerable permissions\\n");
+    return 0;
+}`;
+            downloadFile(content, 'service.cpp');
+        }
+    </script>
+</body>
+</html>
