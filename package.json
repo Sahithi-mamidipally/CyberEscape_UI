@@ -2,6 +2,11 @@
     "name": "Cyber Escape Room",
     "version": "1.0.0",
     "scripts": {
-    "deploy": "xcopy \"./CER\" \"./public\" /s /y && firebase deploy"
+         "deploy": "xcopy \"./CER\" \"./public\" /s /y && firebase deploy",
+        "deploy-mac": "rsync -r ./CER/ ./public && firebase deploy"
+    },
+    "dependencies": {
+        "qrcode": "^1.5.4",
+        "speakeasy": "^2.0.0"
+    }
 }
-  }

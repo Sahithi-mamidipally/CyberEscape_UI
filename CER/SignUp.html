@@ -1,162 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Create Account</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-      <!-- The core Firebase JS SDK is always required and must be listed first -->
-      <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
-
-      <!-- TODO: Add SDKs for Firebase products that you want to use
-           https://firebase.google.com/docs/web/setup#available-libraries -->
-      <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Account</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   
-    <script type="module" src="./index.js"></script>
-  </head>
-  <body class="bg-gray-900 flex items-center justify-center h-screen">
-    <div class="w-full max-w-sm mx-auto bg-black shadow-lg rounded-lg p-8">
-      <!-- Logo (optional) -->
-      <div class="flex justify-center mb-6">
-        <!-- Replace with your own logo if needed -->
-        <img src="/logo.jpeg" alt="Logo" class="w-10 h-10" />
-      </div>
-
-      <h2 class="text-2xl font-semibold text-center text-red-500 mb-6">
-        Create your account
-      </h2>
-
-      <!-- Already have an account link -->
-      <p class="text-center text-sm text-gray-400 mb-6">
-        Already have an account?
-        <a href="./Login.html" class="text-red-500 hover:underline">Login</a>
-      </p>
-
-      <!-- Form -->
-      <form action="#" method="POST" id="sign-up-form">
-        <!-- Full Name input -->
-        
-        <div class="mb-4">
-          <label for="name" class="block text-gray-300 text-sm mb-2">Name</label>
-          <input 
-              type="text"
-              id="full_name"
-              name="name"
-              placeholder="Enter your name"
-            class="w-full px-4 py-2 border border-gray-600 bg-gray-800 text-gray-300 placeholder-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
-              required
-              style="color: #d1d5db;"
-          />
-      </div>
-
-
-        <!-- Email input -->
-        <div class="mb-4">
-          <label for="email" class="block text-gray-300 text-sm mb-2">Email Address</label>
-          <input 
-              type="email"
-              id="email"
-              name="email"
-              placeholder="name@abc.com"
-            class="w-full px-4 py-2 border border-gray-600 bg-gray-800 text-gray-300 placeholder-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
-              required
-              style="color: #d1d5db;"
-          />
-      </div>
-
-        <!-- Password input -->
-        <div class="mb-4">
-          <label for="password" class="block text-gray-300 text-sm mb-2 ">Password</label>
-          <input 
-              type="password"
-              id="password"
-              name="password"
-              placeholder="Enter your password"
-            class="w-full px-4 py-2 border border-gray-600 bg-gray-800 text-gray-300 placeholder-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
-              required
-              style="color: #d1d5db;"
-              onfocus="document.getElementById('password-helper').style.display = 'block'"
-              onblur="document.getElementById('password-helper').style.display = 'none'"
-          />
-        </div>
-
-        <!-- Confirm Password input -->
-        <div class="mb-4">
-          <label for="confirm_password" class="block text-gray-300 ">Confirm Password</label>
-          <input 
-              type="password"
-              id="confirm_password"
-              name="confirm_password"
-              placeholder="Re-enter your password"
-              class="w-full px-4 py-2 border border-gray-600 bg-gray-800 text-gray-300 placeholder-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
-              required
-              style="color: #d1d5db;"
-          />
-      </div>
-
-        <!-- Terms and Conditions checkbox -->
-        <div class="flex items-center justify-between mb-6">
-          <label class="inline-flex items-center">
-            <input
-              type="checkbox"
-              class="form-checkbox text-red-500"
-              required
-            />
-            <span class="ml-2 text-gray-400"
-              >I agree to the
-              <a href="./Login.html" class="text-red-500 hover:underline"
-                >terms and conditions</a
-              ></span
-            >
-          </label>
-        </div>
-
-        <!-- Create account button -->
-        <div>
-          <a
-            onclick="register()"
-            class="w-full bg-red-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 text-center"
-          >
-            Create Account
-          </a>
-          <a href="./Login.html" class="text-red-500 hover:underline"></a>
-
-          <!--<button
-            type="submit"
-            class="w-full bg-red-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500"
-          >
-            Create account
-          </button> -->
-        </div>
-      </form>
-
-      <!-- Or continue with section -->
-      <div class="mt-6 text-center text-gray-400">Or Login with</div>
-
-      <!-- OAuth buttons -->
-      <div class="mt-4 flex space-x-4">
-        <button
-          class="flex items-center justify-center w-1/2 py-2 px-4 border border-gray-600 bg-gray-800 text-gray-300 rounded-md hover:bg-gray-700 focus:outline-none"
-        >
-          <img
-            src="https://www.svgrepo.com/show/355037/google.svg"
-            alt="Google"
-            class="w-5 h-5 mr-2"
-          />
-          <span class="text-gray-300">Google</span>
-        </button>
-        <button
-          class="flex items-center justify-center w-1/2 py-2 px-4 border border-gray-600 bg-gray-800 text-gray-300 rounded-md hover:bg-gray-700 focus:outline-none"
-        >
-          <img
-            src="https://www.svgrepo.com/show/349474/github.svg"
-            alt="GitHub"
-            class="w-5 h-5 mr-2"
-          />
-          <span class="text-gray-300">GitHub</span>
-        </button>
-      </div>
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+  
+  <!-- Custom Scripts -->
+  <script type="module" src="./index.js"></script>
+  <script src="Google.js"></script>
+</head>
+<body class="bg-gray-900 flex items-center justify-center h-screen">
+  <div class="w-full max-w-sm mx-auto bg-black shadow-lg rounded-lg p-8">
+    <!-- Logo (optional) -->
+    <div class="flex justify-center mb-6">
+      <img src="/logo.jpeg" alt="Logo" class="w-10 h-10" />
     </div>
-  </body>
+
+    <h2 class="text-2xl font-semibold text-center text-red-500 mb-6">
+      Create your account
+    </h2>
+
+    <!-- Already have an account link -->
+    <p class="text-center text-sm text-gray-400 mb-6">
+      Already have an account?
+      <a href="./Login.html" class="text-red-500 hover:underline">Login</a>
+    </p>
+
+    <!-- Form -->
+    <form action="#" method="POST" id="sign-up-form">
+      <!-- Full Name input -->
+      <div class="mb-4">
+        <label for="name" class="block text-gray-300 text-sm mb-2">Name</label>
+        <input 
+          type="text"
+          id="full_name"
+          name="name"
+          placeholder="Enter your name"
+          class="w-full px-4 py-2 border border-gray-600 bg-gray-800 text-gray-300 placeholder-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+          required
+          style="color: #d1d5db;"
+        />
+      </div>
+
+      <!-- Email input -->
+      <div class="mb-4">
+        <label for="email" class="block text-gray-300 text-sm mb-2">Email Address</label>
+        <input 
+          type="email"
+          id="email"
+          name="email"
+          placeholder="name@abc.com"
+          class="w-full px-4 py-2 border border-gray-600 bg-gray-800 text-gray-300 placeholder-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+          required
+          style="color: #d1d5db;"
+        />
+      </div>
+
+      <!-- Password input -->
+      <div class="mb-4">
+        <label for="password" class="block text-gray-300 text-sm mb-2">Password</label>
+        <input 
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Enter your password"
+          class="w-full px-4 py-2 border border-gray-600 bg-gray-800 text-gray-300 placeholder-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+          required
+          style="color: #d1d5db;"
+          onfocus="document.getElementById('password-helper').style.display = 'block'"
+          onblur="document.getElementById('password-helper').style.display = 'none'"
+        />
+      </div>
+
+      <!-- Confirm Password input -->
+      <div class="mb-4">
+        <label for="confirm_password" class="block text-gray-300">Confirm Password</label>
+        <input 
+          type="password"
+          id="confirm_password"
+          name="confirm_password"
+          placeholder="Re-enter your password"
+          class="w-full px-4 py-2 border border-gray-600 bg-gray-800 text-gray-300 placeholder-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+          required
+          style="color: #d1d5db;"
+        />
+      </div>
+
+      <!-- Terms and Conditions checkbox -->
+      <div class="flex items-center justify-between mb-6">
+        <label class="inline-flex items-center">
+          <input
+            type="checkbox"
+            class="form-checkbox text-red-500"
+            required
+          />
+          <span class="ml-2 text-gray-400">
+            I agree to the
+            <a href="./Login.html" class="text-red-500 hover:underline">terms and conditions</a>
+          </span>
+        </label>
+      </div>
+
+      <!-- Create account button -->
+      <div class="flex justify-center">
+        <a
+          onclick="register()"
+          class="w-full max-w-xs bg-red-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 text-center cursor-pointer"
+        >
+          Create Account
+        </a>
+      </div>
+    </form>
+
+    <div class="container flex flex-col items-center space-y-2">
+      <!-- Separator Line with "or" -->
+      <div class="flex items-center w-full justify-center space-x-2">
+        <hr class="flex-grow border-gray-300">
+        <span class="px-4 text-gray-400">or</span>
+        <hr class="flex-grow border-gray-300">
+      </div>
+      
+      <!-- Login with Google Button -->
+      <button
+        onclick="googleLogin()"
+        class="flex items-center justify-center w-full max-w-xs py-3 px-4 border border-gray-400 text-gray-600 rounded-md hover:bg-gray-100 focus:outline-none"
+      >
+        <img
+          src="https://www.svgrepo.com/show/355037/google.svg"
+          alt="Google"
+          class="w-5 h-5 mr-2"
+        />
+        <span>Login with Google</span>
+      </button>
+    </div>
+  </div>
+  <script src="Google.js"></script>
+</body>
 </html>
