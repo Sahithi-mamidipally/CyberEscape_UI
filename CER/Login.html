@@ -3,46 +3,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sign In</title>
+    <title>Login - CyberEscape Room</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <!-- Firebase SDKs -->
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
-
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-         https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
-    <script src="https://www.google.com/recaptcha/api.js"></script>
-
-  <script type="module" src="./index.js"></script>
+    <!-- Our custom JS -->
+    <script type="module" src="./index.js"></script>
   </head>
-  <body class="bg-gray-900 flex items-center justify-center h-screen">
+  <body class="bg-gray-900 flex items-center justify-center min-h-screen p-4">
     <div class="w-full max-w-sm mx-auto bg-black shadow-lg rounded-lg p-8">
-      <!-- Logo (optional) -->
+      <!-- Logo -->
       <div class="flex justify-center mb-6">
-        <!-- Replace with your own logo if needed -->
-        <img src="/logo.jpeg" alt="Logo" class="w-10 h-10" />
+        <img src="./logo.jpeg" alt="CyberEscape Logo" class="w-20 h-20 rounded-full" />
       </div>
 
       <h2 class="text-2xl font-semibold text-center text-red-500 mb-6">
         Login
       </h2>
 
-      <!-- Free trial link -->
+      <!-- Registration link -->
       <p class="text-center text-sm text-gray-400 mb-6">
-        <a href="./SignUp.html" class="text-red-500 hover:underline"
-          > Not a member?</a
-        >
+        Not a member?
+        <a href="./SignUp.html" class="text-red-500 hover:underline">Sign up now</a>
       </p>
 
-      <div id="recaptcha-container"></div>
-      <!-- Form -->
-      <form action="#" method="POST">
+      <!-- Login Form -->
+      <form onsubmit="event.preventDefault();" class="space-y-6">
         <!-- Email input -->
-        <div class="mb-4">
-          <label for="email" class="block text-gray-300 text-sm mb-2"
-            >Email address</label
-          >
+        <div>
+          <label for="email" class="block text-gray-300 text-sm mb-2">Email address</label>
           <input
             type="email"
             id="email"
@@ -53,10 +44,8 @@
         </div>
 
         <!-- Password input -->
-        <div class="mb-4">
-          <label for="password" class="block text-gray-300 text-sm mb-2"
-            >Password</label
-          >
+        <div>
+          <label for="password" class="block text-gray-300 text-sm mb-2">Password</label>
           <input
             type="password"
             id="password"
@@ -66,50 +55,37 @@
           />
         </div>
 
-        <!-- Remember me checkbox -->
-        <div class="flex items-center justify-between mb-6">
-          <!-- <div>
-            <label class="inline-flex items-center">
-              <input type="checkbox" class="form-checkbox text-red-500" />
-              <span class="ml-2 text-gray-400">Remember me</span>
-            </label>
-          </div> -->
-
-          <!-- Forgot password link -->
-          <div>
-            <a href="#" class="text-sm text-red-500 hover:underline"
-              >Forgot password?</a
-            >
-          </div>
+        <!-- Forgot password -->
+        <div class="flex justify-end">
+          <a href="#" class="text-sm text-red-500 hover:underline">Forgot password?</a>
         </div>
 
-
-
-        <!-- Sign in button -->
-        <a
+        <!-- Login button -->
+        <button
+          type="submit"
           onclick="login()"
-          class="w-full bg-red-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 text-center"
+          class="w-full bg-red-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 transition-colors"
         >
           Login
-        </a>
-
-        <!--<div>
-          <button
-            type="submit"
-            class="w-full bg-red-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500"
-          >
-            Sign in
-          </button>
-        </div>-->
+        </button>
       </form>
 
-      <!-- Or continue with section -->
-      <div class="mt-6 text-center text-gray-400">Or continue with</div>
+      <!-- Divider -->
+      <div class="relative my-6">
+        <div class="absolute inset-0 flex items-center">
+          <div class="w-full border-t border-gray-600"></div>
+        </div>
+        <div class="relative flex justify-center text-sm">
+          <span class="px-2 text-gray-400 bg-black">Or continue with</span>
+        </div>
+      </div>
 
-      <!-- OAuth buttons -->
-      <div class="mt-4 flex space-x-4">
+      <!-- Social Login Buttons -->
+      <div class="flex space-x-4">
+        <!-- Google Login -->
         <button
-          class="flex items-center justify-center w-1/2 py-2 px-4 border border-gray-600 bg-gray-800 text-gray-300 rounded-md hover:bg-gray-700 focus:outline-none"
+          onclick="signInWithGoogle()"
+          class="flex-1 flex items-center justify-center py-2 px-4 border border-gray-600 rounded-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-red-500 transition-colors"
         >
           <img
             src="https://www.svgrepo.com/show/355037/google.svg"
@@ -118,8 +94,11 @@
           />
           <span class="text-gray-300">Google</span>
         </button>
+
+        <!-- GitHub Login -->
         <button
-          class="flex items-center justify-center w-1/2 py-2 px-4 border border-gray-600 bg-gray-800 text-gray-300 rounded-md hover:bg-gray-700 focus:outline-none"
+          onclick="signInWithGithub()"
+          class="flex-1 flex items-center justify-center py-2 px-4 border border-gray-600 rounded-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-red-500 transition-colors"
         >
           <img
             src="https://www.svgrepo.com/show/349474/github.svg"
@@ -129,6 +108,15 @@
           <span class="text-gray-300">GitHub</span>
         </button>
       </div>
+
+      <!-- Password requirements tooltip -->
+      <div class="mt-4 text-xs text-gray-500 text-center">
+        Password must contain at least 8 characters, including uppercase, lowercase, 
+        number and special character.
+      </div>
     </div>
+
+    <!-- Toast/Alert Container -->
+    <div id="toast-container" class="fixed bottom-4 right-4 space-y-2"></div>
   </body>
 </html>
