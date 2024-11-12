@@ -91,6 +91,7 @@ function login() {
       // Declare user variable
       var user = auth.currentUser
       localStorage.setItem('user', user.email);
+      localStorage.setItem('isLoggedIn', true);
 
       // Update the user data in the database
       const databaseRef = database.ref();
