@@ -78,6 +78,7 @@ function login() {
     .then(function () {
       const user = auth.currentUser;
       localStorage.setItem('user', user.email);
+      localStorage.setItem('isLoggedIn', true);
 
       // Update user data in database
       const databaseRef = database.ref();
